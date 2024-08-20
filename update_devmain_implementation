@@ -1,0 +1,11 @@
+$dirsource = "\\saturn5b\test\sqldevmaintest"
+$dirbase = "\\edulogfs2\proserv\InstallsPreRelease\DevMain2"
+
+
+"##################################" | Out-File -FilePath .\update.log
+"update.ps1" | Out-File -FilePath .\update.log -Append
+"update.ps1" | Out-Host
+Get-Date | Out-File -FilePath .\update.log -Append
+"Copying Files From: $dirsource" | Out-File -FilePath .\update.log -Append
+"Copying Files To:   $dirbase" | Out-File -FilePath .\update.log -Append
+"##################################" | Out-File -FilePath .\update.log -Append
