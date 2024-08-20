@@ -12,3 +12,5 @@ Get-Date | Out-File -FilePath .\update.log -Append
 
 ## Clear contents of desintation folder
 Get-ChildItem $dirbase -Recurse | Remove-Item -Force
+
+Copy-Item "$dirsource\*.exe" -Destination "$dirbase"
