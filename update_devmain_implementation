@@ -10,3 +10,5 @@ Get-Date | Out-File -FilePath .\update.log -Append
 "Copying Files To:   $dirbase" | Out-File -FilePath .\update.log -Append
 "##################################" | Out-File -FilePath .\update.log -Append
 
+## Clear contents of desintation folder
+Get-ChildItem $dirbase -Recurse | Remove-Item -Force
