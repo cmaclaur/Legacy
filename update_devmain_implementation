@@ -27,14 +27,15 @@ function Copy-Dir($folder) {
 }
 
 "##################################" | Out-File -FilePath .\update.log
-"update.ps1" | Out-File -FilePath .\update.log -Append
-"update.ps1" | Out-Host
+"update_devmain_implementation.ps1" | Out-File -FilePath .\update.log -Append
+"update_devmain_implementation.ps1" | Out-Host
 Get-Date | Out-File -FilePath .\update.log -Append
 "Copying Files From: $dirsource" | Out-File -FilePath .\update.log -Append
 "Copying Files To:   $dirbase" | Out-File -FilePath .\update.log -Append
 "##################################" | Out-File -FilePath .\update.log -Append
 
 ## Clear contents of desintation folder
+"Clear contents of desintation folder" | Out-Host
 Get-ChildItem $dirbase -Recurse | Remove-Item -Force
 
 
