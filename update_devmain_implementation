@@ -14,3 +14,8 @@ Get-Date | Out-File -FilePath .\update.log -Append
 Get-ChildItem $dirbase -Recurse | Remove-Item -Force
 
 Copy-Item "$dirsource\*.exe" -Destination "$dirbase"
+
+Copy-Item -Path "$dirsource\client" -Destination "$dirbase\client" -Recurse
+Copy-Item -Path "$dirsource\custom" -Destination "$dirbase\custom" -Recurse
+Copy-Item -Path "$dirsource\dbtables" -Destination "$dirbase\dbtables" -Recurse
+
