@@ -13,9 +13,16 @@ Get-Date | Out-File -FilePath .\update.log -Append
 ## Clear contents of desintation folder
 Get-ChildItem $dirbase -Recurse | Remove-Item -Force
 
+"Copy-Item $dirsource\*.exe -Destination $dirbase" | Out-Host
+"Copy-Item $dirsource\*.exe -Destination $dirbase" | Out-File -FilePath .\update_edulogfs3.log -Append
 Copy-Item "$dirsource\*.exe" -Destination "$dirbase"
 
+"Copy-Item $dirsource\client -Destination $dirbase\client" | Out-Host
 Copy-Item -Path "$dirsource\client" -Destination "$dirbase\client" -Recurse
+
+"Copy-Item $dirsource\custom -Destination $dirbase\custom" | Out-Host
 Copy-Item -Path "$dirsource\custom" -Destination "$dirbase\custom" -Recurse
+
+"Copy-Item $dirsource\dbtables -Destination $dirbase\dbtables" | Out-Host
 Copy-Item -Path "$dirsource\dbtables" -Destination "$dirbase\dbtables" -Recurse
 
