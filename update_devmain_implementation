@@ -2,12 +2,28 @@ $dirsource = "\\saturn5b\test\sqldevmaintest"
 $dirbase = "\\edulogfs3\\DevMain_Implementation"
 
 function Copy-Dir($folder) {
-  	$source = "$dirsource\$folder"
-  	$destination = "$dirbase\$folder"
-  	"Copy-Item" | Out-Host
-  	"   -Source      $source" | Out-Host
-  	"   -Destination $destination" | Out-Host
-  	Copy-Item -Path "$source" -Destination "$destination" -Recurse
+   $source = "$dirsource\$folder"
+   $destination = "$dirbase\$folder"
+   "Copy-Item" | Out-Host
+   "   -Source      $source" | Out-Host
+   "   -Destination $destination" | Out-Host
+   "Copy-Item" | Out-File -FilePath .\update_edulogfs3.log -Append
+   "   -Source      $source" | Out-File -FilePath .\update_edulogfs3.log -Append
+   "   -Destination $destination" | Out-File -FilePath .\update_edulogfs3.log -Append
+   Copy-Item -Path "$source" -Destination "$destination" -Recurse
+   if (Test-Path -Path $destination) {
+      # Path exists
+    	"   PASS   Path Found $destination" | Out-File -FilePath .\update_edulogfs3.log -Append
+		  "   PASS   Path Found $destination" | Out-Host
+	 } else {
+    	# Path does not exist
+    	"   FAIL   Path Found $destination" | Out-File -FilePath .\update_edulogfs3.log -Append
+    	"   FAIL   Path Found $destination" | Out-Host
+	 }
+	 "   Complete" | Out-Host
+   "   Complete" | Out-File -FilePath .\update_edulogfs3.log -Append
+	 "------------------------------" | Out-Host
+	 "------------------------------" | Out-File -FilePath .\update_edulogfs3.log -Append
 }
 
 "##################################" | Out-File -FilePath .\update.log
