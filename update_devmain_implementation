@@ -2,7 +2,12 @@ $dirsource = "\\saturn5b\test\sqldevmaintest"
 $dirbase = "\\edulogfs3\\DevMain_Implementation"
 
 function Copy-Dir($folder) {
-
+  	$source = "$dirsource\$folder"
+  	$destination = "$dirbase\$folder"
+  	"Copy-Item" | Out-Host
+  	"   -Source      $source" | Out-Host
+  	"   -Destination $destination" | Out-Host
+  	Copy-Item -Path "$source" -Destination "$destination" -Recurse
 }
 
 "##################################" | Out-File -FilePath .\update.log
