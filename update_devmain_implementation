@@ -1,6 +1,9 @@
 $dirsource = "\\saturn5b\test\sqldevmaintest"
 $dirbase = "\\edulogfs3\\DevMain_Implementation"
 
+function Copy-Dir($folder) {
+
+}
 
 "##################################" | Out-File -FilePath .\update.log
 "update.ps1" | Out-File -FilePath .\update.log -Append
