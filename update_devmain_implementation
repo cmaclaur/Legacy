@@ -25,8 +25,7 @@ Get-ChildItem $dirbase -Recurse | Remove-Item -Force
 "Copy-Item $dirsource\*.exe -Destination $dirbase" | Out-File -FilePath .\update_edulogfs3.log -Append
 Copy-Item "$dirsource\*.exe" -Destination "$dirbase"
 
-"Copy-Item $dirsource\client -Destination $dirbase\client" | Out-Host
-Copy-Item -Path "$dirsource\client" -Destination "$dirbase\client" -Recurse
+Copy-Dir "client"
 
 "Copy-Item $dirsource\custom -Destination $dirbase\custom" | Out-Host
 Copy-Item -Path "$dirsource\custom" -Destination "$dirbase\custom" -Recurse
