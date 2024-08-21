@@ -21,15 +21,23 @@ Get-Date | Out-File -FilePath .\update.log -Append
 ## Clear contents of desintation folder
 Get-ChildItem $dirbase -Recurse | Remove-Item -Force
 
-"Copy-Item $dirsource\*.exe -Destination $dirbase" | Out-Host
-"Copy-Item $dirsource\*.exe -Destination $dirbase" | Out-File -FilePath .\update_edulogfs3.log -Append
+
+
 Copy-Item "$dirsource\*.exe" -Destination "$dirbase"
 
 Copy-Dir "client"
+Copy-Dir "custom"
+Copy-Dir "dbtables"
+Copy-Dir "emu"
+Copy-Dir "etm"
+Copy-Dir "house"
+Copy-Dir "initialtables"
+Copy-Dir "reports"
+Copy-Dir "server"
+Copy-Dir "staterpts"
+Copy-Dir "system32"
+Copy-Dir "web"
 
-"Copy-Item $dirsource\custom -Destination $dirbase\custom" | Out-Host
-Copy-Item -Path "$dirsource\custom" -Destination "$dirbase\custom" -Recurse
 
-"Copy-Item $dirsource\dbtables -Destination $dirbase\dbtables" | Out-Host
-Copy-Item -Path "$dirsource\dbtables" -Destination "$dirbase\dbtables" -Recurse
+
 
