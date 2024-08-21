@@ -36,7 +36,7 @@ Get-Date | Out-File -FilePath .\update.log -Append
 
 ## Clear contents of desintation folder
 "Clear contents of desintation folder" | Out-Host
-Get-ChildItem $dirbase -Recurse | Remove-Item -Force
+rm "$dirbase\*" -Recurse -Force
 
 
 
